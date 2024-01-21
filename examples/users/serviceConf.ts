@@ -1,4 +1,4 @@
-import { BaseAPI } from "../../baseAPI";
+import { BaseAPI } from "../../src/baseAPI";
 import { ApiException } from "../apiException";
 
 
