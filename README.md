@@ -1,11 +1,11 @@
 # japi
-Javascript client service for REST based APIs integration. Japi considers each api resource to be an object, there by leveraging on the power of object oriented design to improve code reusabilty by eliminating code redundancy and boilerplate code for every API endpoint call. 
+JAPI is a Javascript client service for REST based APIs integration. Japi considers each api resource to be an object, there by leveraging on the power of object oriented design to improve code reusabilty by eliminating code redundancy and boilerplate code for every API endpoint call. 
 
 ## Goals:
 
  - Improve code reuserbility
  - Eliminate API calls boilerplate code
- - Achieve cleaner API service
+ - Achieve cleaner frontend API service
 
 
 Japi provide you with an extensible `BaseAPI` class that implements basic request CRUD operation, and allow you as a developer to extend it for more specific api operations like resource searching etc, leveraging on the pre-defined methods like `get`, `create`, `update`, and `delete`.
@@ -14,9 +14,9 @@ Japi provide you with an extensible `BaseAPI` class that implements basic reques
 
 Lets say we have a backend API sitting in `https://example.com/api` and we're trying to implement a frontend service that will handle connecting to different resources withing the API.
 
-# Configuration for Basic CRUD operations
+### Configuration for Basic CRUD operations
 
- Lets say we want to connect to `users` resource in `https://example.com/api/users` and we want our front end service to handle CRUD operations for the users resourse. All we need to do is what is shown below:
+ Lets say we want to connect to `users` resource in `https://example.com/api/users` and we want our frontend service to handle CRUD operations for the users resourse. All we need to do is what is shown below:
 
  ```js
 import { BaseAPI } from "japi";
@@ -29,7 +29,7 @@ export class UserAPI extends BaseAPI {
     "content-type": "application/json",
     "Authorization": `Bearer ${this.token}`,
   };
-  errorExceptionClass = ApiException;               // A custom Exception class that (required)
+  errorExceptionClass = ApiException;               // A custom Exception class (required)
 }
  ```
 The above code is the most basic configuration for `japi`, we start by importing `BaseAPI` class from `japi` and supply to it some required info like the resource endpoint url, the API required headers, and `errorExceptionClass` which is required as it is going to be called when something went wrong in the API communication with the status code as argument. below is the example usage for the configuration above:
@@ -175,11 +175,20 @@ const searchObj = {
 const patientSearchResult = patientAPI.searchPatients(searchObj)    // returns entry part of the search() response
 ```
 
-##### Configuration parameters
+## Configuration parameters
 | param               | required | description                                                                             |
 |---------------------|----------|-----------------------------------------------------------------------------------------|
 | endpointUrl         | 'Yes'    | The API resource url you're configuring for                                             |
 | headers             | 'No'     | The required API request headers                                                        |
 | errorExceptionClass | 'Yes'    | Exception class to be called when request failed, the class should accept a status code |
-| errorLoggingFunc    | 'No'     | Error logging function to be called when request failed e.g `Sentry.captureException`   |
+| errorLoggingFunc    | 'No'     | Error logging function to be called when request failed (e.g `Sentry.captureException`) |
 
+## Pre-defined methods
+| name                | description                                                 | argument(s)                                     |
+|---------------------|-------------------------------------------------------------|-------------------------------------------------|
+| setEndpointUrl      | this method update the set endpointUrl with the provide url | url: string
+| get                 | this method query the given resource url to retrieve list of record or get retrieve single record if an id is provided | id?: number |
+| search              | this method query the given resource url to retrieve list of record based on the provided search params | searchObj: Object |
+| create              | This method create a new record in the given resource | createData: Object                                    |
+| update              | This method update a record in the given resource     | id: number, updateData: Object
+| delete              | This method delete a record in the given resource     | id: number
