@@ -37,6 +37,7 @@ The above code is the most basic configuration for `japi`, we start by importing
 ```js
 import { UserAPI } from "./serviceConf";
 
+
 const userData = {
   name: "Ahmad Ameen",
   email: "ahmadmameen7@gmail.com",
@@ -102,6 +103,7 @@ below is the example usage for the configuration above:
 
 ```js
 import { UserAPI } from "./serviceConf";
+
 
 const userData = {
   name: "Ahmad Ameen",
