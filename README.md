@@ -12,11 +12,11 @@ Japi provide you with an extensible `BaseAPI` class that implements basic reques
 
 ## Examples
 
-Lets say we have a backend API sitting in `https://example.com/api` and we're trying to implement a frontend service that will handle connecting to different resources withing the API.
+Lets say we have a backend API sitting at `https://example.com/api` and we're trying to implement a frontend service that will handle connecting to different resources withing the API.
 
 ### Configuration for Basic CRUD operations
 
- Lets say we want to connect to `users` resource in `https://example.com/api/users` and we want our frontend service to handle CRUD operations for the users resourse. All we need to do is what is shown below:
+ Lets say we want to connect to `users` resource at `https://example.com/api/users` and we want our frontend service to handle CRUD operations for the users resourse. All we need to do is what is shown below:
 
  ```js
 import { BaseAPI } from "japi";
@@ -66,7 +66,7 @@ const userDeleteResponse = userAPI.delete(1)                    // 1 is the user
 
 ## Configuration with more specific operations
 
-Using same analogy as before, for the sake of example, let say you want to connect to a user profiles details which is sitting in `https://example.com/api/users/<id>/profiles`:
+Using same analogy as before, for the sake of example, let say you want to connect to a user profiles details which is sitting at `https://example.com/api/users/<id>/profiles`:
 
 ```js
 import * as Sentry from '@sentry/react';
@@ -186,9 +186,13 @@ const patientSearchResult = patientAPI.searchPatients(searchObj)    // returns e
 ## Pre-defined methods
 | name                | description                                                 | argument(s)                                     |
 |---------------------|-------------------------------------------------------------|-------------------------------------------------|
-| setEndpointUrl      | this method update the set endpointUrl with the provide url | url: string
-| get                 | this method query the given resource url to retrieve list of record or get retrieve single record if an id is provided | id?: number |
-| search              | this method query the given resource url to retrieve list of record based on the provided search params | searchObj: Object |
+| setEndpointUrl      | This method update the set endpointUrl with the provide url | url: string
+| get                 | This method query the given resource url to retrieve list of record or get retrieve single record if an id is provided | id?: number |
+| search              | This method query the given resource url to retrieve list of record based on the provided search params | searchObj: Object |
 | create              | This method create a new record in the given resource | createData: Object                                    |
 | update              | This method update a record in the given resource     | id: number, updateData: Object
 | delete              | This method delete a record in the given resource     | id: number
+
+
+## Contribute
+Join me by [github issues](https://github.com/mameen7/japi/issues) or pull-requests
