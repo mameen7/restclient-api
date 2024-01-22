@@ -1,6 +1,10 @@
 type Method = "GET" | "POST" | "PUT" | "DELETE";
+
 type Headers = { [key: string]: string };
 
+type SearchObj = {
+  [key: string]: string;
+};
 
 export class BaseAPI {
   headers: Headers;
@@ -14,6 +18,10 @@ export class BaseAPI {
     this.endpointUrl = "";
     this.headers = {"content-type": "application/json"};
     this.errorExceptionClass = Object;
+  }
+
+  setEndpointUrl (url: string) {
+    this.endpointUrl = url
   }
 
   async _apiCall(method: Method, query = "", data?: unknown) {
@@ -40,6 +48,14 @@ export class BaseAPI {
       return await this._apiCall('GET', arg as string)
     }
     return await this._apiCall("GET");
+  }
+
+  async search (searchObj: SearchObj) {
+    let requestQuery = "?";
+    Object.keys(searchObj).forEach((key: string, i: number) => {
+      requestQuery += `${key}=${searchObj[key]}${i < (Object.keys(searchObj).length - 1) ? "&" : ""}`;
+    });
+    return await this.get(requestQuery);
   }
 
   async create(data: unknown, requestQuery?: string) {
