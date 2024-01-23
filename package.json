@@ -1,5 +1,19 @@
 {
+  "name": "restclient-api",
+  "version": "0.0.2",
   "devDependencies": {
     "typescript": "^5.3.3"
-  }
+  },
+  "description": "Javascript client service for REST based APIs integration",
+  "main": "src/baseAPI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mameen7/restclient-api.git"
+  },
+  "author": "Ahmad Ameen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mameen7/restclient-api/issues"
+  },
+  "homepage": "https://github.com/mameen7/restclient-api"
 }

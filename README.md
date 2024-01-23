@@ -1,5 +1,5 @@
-# japi
-JAPI is a Javascript client service for REST based APIs integration. Japi considers each api resource to be an object, there by leveraging on the power of object oriented design to improve code reusabilty by eliminating code redundancy and boilerplate code for every API endpoint call. 
+# restclient-api
+`restclient-api` is a Javascript client service for REST based APIs integration. restclient-api considers each api resource to be an object, there by leveraging on the power of object oriented design to improve code reusabilty by eliminating code redundancy and boilerplate code for every API endpoint call. 
 
 ## Goals:
 
@@ -8,7 +8,7 @@ JAPI is a Javascript client service for REST based APIs integration. Japi consid
  - Achieve cleaner frontend API service
 
 
-Japi provide you with an extensible `BaseAPI` class that implements basic request CRUD operation, and allow you as a developer to extend it for more specific api operations like resource searching etc, leveraging on the pre-defined methods like `get`, `create`, `update`, and `delete`.
+restclient-api provide you with an extensible `BaseAPI` class that implements basic request CRUD operation, and allow you as a developer to extend it for more specific api operations like resource searching etc, leveraging on the pre-defined methods like `get`, `create`, `update`, and `delete`.
 
 ## Examples
 
@@ -19,7 +19,7 @@ Lets say we have a backend API sitting at `https://example.com/api` and we're tr
  Lets say we want to connect to `users` resource at `https://example.com/api/users` and we want our frontend service to handle CRUD operations for the users resourse. All we need to do is what is shown below:
 
  ```js
-import { BaseAPI } from "japi";
+import { BaseAPI } from "restclient-api";
 import { ApiException } from "../apiException";
 
 
@@ -32,7 +32,7 @@ export class UserAPI extends BaseAPI {
   errorExceptionClass = ApiException;               // A custom Exception class (required)
 }
  ```
-The above code is the most basic configuration for `japi`, we start by importing `BaseAPI` class from `japi` and supply to it some required info like the resource endpoint url, the API required headers, and `errorExceptionClass` which is required as it is going to be called when something went wrong in the API communication with the status code as argument. below is the example usage for the configuration above:
+The above code is the most basic configuration for `restclient-api`, we start by importing `BaseAPI` class from `restclient-api` and supply to it some required info like the resource endpoint url, the API required headers, and `errorExceptionClass` which is required as it is going to be called when something went wrong in the API communication with the status code as argument. below is the example usage for the configuration above:
 
 ```js
 import { UserAPI } from "./serviceConf";
@@ -71,7 +71,7 @@ Using same analogy as before, for the sake of example, let say you want to conne
 
 ```js
 import * as Sentry from '@sentry/react';
-import { BaseAPI } from "japi";
+import { BaseAPI } from "restclient-api";
 import { ApiException } from "../apiException";
 
 
@@ -138,7 +138,7 @@ const userDeleteResponse = userAPI.delete(1);                    // 1 is the use
 Another different example of configuration with specific usecase is when you need your service to return a specific part of the request response. Below is an example:
 
 ```js
-import { BaseAPI } from "japi";
+import { BaseAPI } from "restclient-api";
 
 
 type FilterType = SearchObj[];
@@ -197,4 +197,4 @@ const patientSearchResult = patientAPI.searchPatients(searchObj)    // returns e
 
 
 ## Contribute
-Join me by [github issues](https://github.com/mameen7/japi/issues) or pull-requests
+Join me by [github issues](https://github.com/mameen7/restclient-api/issues) or pull-requests
