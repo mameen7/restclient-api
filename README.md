@@ -1,4 +1,8 @@
 # restclient-api
+================
+
+[![npm version](https://badge.fury.io/js/restclient-api.svg)](https://badge.fury.io/js/restclient-api)
+
 `restclient-api` is a Javascript client service for REST based APIs integration. restclient-api considers each api resource to be an object, there by leveraging on the power of object oriented design to improve code reusabilty by eliminating code redundancy and boilerplate code for every API endpoint call. 
 
 ## Goals:
