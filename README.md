@@ -1,5 +1,4 @@
 # restclient-api
-================
 
 [![npm version](https://badge.fury.io/js/restclient-api.svg)](https://badge.fury.io/js/restclient-api)
 
