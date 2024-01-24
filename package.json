@@ -1,6 +1,6 @@
 {
   "name": "restclient-api",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "devDependencies": {
     "typescript": "^5.3.3"
   },
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/mameen7/restclient-api/issues"
   },
-  "homepage": "https://github.com/mameen7/restclient-api"
+  "homepage": "https://github.com/mameen7/restclient-api",
+  "keywords": [
+    "rest",
+    "api",
+    "client",
+    "restapi",
+    "clientapi",
+    "restclient",
+    "restclientapi"
+  ]
 }
